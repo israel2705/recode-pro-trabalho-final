@@ -1,8 +1,9 @@
+import logo from "../recode-pro-trabalho-final/src/img/logo.png";
 function Navbar() {
   return (
     <header>
       <nav>
-        {/* <img src={} /> aqui fica a logo do nosso trabalho */}
+        <img src={logo} alt="" />
         <a href="#home">Home</a>
         <a href="#Busca de Profissionais">Busca de Profissionais</a>
         <a href="#Cadastro Profissionais">Cadastro Profissionais</a>
