@@ -1,7 +1,7 @@
 import Navbar from "../recode-pro-trabalho-final/src/navbar/components/Navbar";
 import React, { useState } from "react";
 
-const LandingPage = () => {
+const buscaProfissionais = () => {
   const [modalidade, setModalidade] = useState("");
   const [estadoUF, setEstadoUF] = useState("");
 
@@ -45,7 +45,7 @@ const LandingPage = () => {
       </h1>
 
       <div>
-        <p>Modalidade profissional</p>
+        {/* <p>Modalidade profissional</p> */}
         <label>Modalidade profissional</label>
         <select
           value={modalidade}
@@ -57,7 +57,7 @@ const LandingPage = () => {
       </div>
 
       <div>
-        <p>Estado(UF)</p>
+        {/* <p>Estado(UF)</p> */}
         <label>Estado (UF)</label>
         <select value={estadoUF} onChange={(e) => setEstadoUF(e.target.value)}>
           <option value="">Selecione um estado</option>
@@ -116,4 +116,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default buscaProfissionais;
