@@ -1,0 +1,22 @@
+/* src/Footer/Footer.module.css */
+
+.footer {
+    background-color: #c2c3c9;
+    color: #0c0000;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 150px;
+}
+
+@media (max-width: 600px) {
+    .footer {
+        font-size: 14px;
+        padding: 15px;
+        width: 100%;
+        margin-top: 80px;
+    }
+}

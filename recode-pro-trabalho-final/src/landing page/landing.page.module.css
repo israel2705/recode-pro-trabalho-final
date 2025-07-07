@@ -1,0 +1,207 @@
+/* src/landing page/landing.page.module.css */
+
+/* --- Variáveis CSS --- */
+:root {
+    --max-content-width: 1200px;
+    --section-padding-y: 80px;
+    --gap-spacing: 60px;
+    --color-background-primary: #E5E5E5;
+    --color-text-primary: #1E1E1E;
+    --color-button-primary: #216FED;
+    --color-button-secondary: #FFA500;
+    --color-background-accent: #E6F0FA;
+    --color-white: #FFFFFF;
+    --font-poppins: 'Poppins', sans-serif;
+}
+
+/* --- SEÇÃO 1 --- */
+.section1 {
+
+    padding: var(--section-padding-y) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--gap-spacing);
+}
+
+.section1Content {
+    max-width: 600px;
+    text-align: left;
+    color: #1E1E1E
+}
+
+.section1Content h1 {
+    font-family: var(--font-poppins);
+    font-size: 46px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #1E1E1E;
+}
+
+.section1Content p {
+    font-family: var(--font-poppins);
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    line-height: 1.5;
+    color: #1E1E1E;
+}
+
+.image1 {
+    max-width: 700px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* --- BOTÕES --- */
+.buttonPrimary {
+    background-color: var(--color-button-primary);
+    color: var(--color-white);
+    font-family: var(--font-poppins);
+    font-size: 22px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buttonPrimary:hover {
+    background-color: #1a5acb;
+}
+
+.buttonSecondary {
+    background-color: var(--color-button-secondary);
+    color: var(--color-white);
+    font-family: var(--font-poppins);
+    font-size: 22px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buttonSecondary:hover {
+    background-color: #FF8C42;
+}
+
+/* --- SEÇÃO 2 --- */
+.section2 {
+    padding: var(--section-padding-y) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    gap: var(--gap-spacing);
+}
+
+.image2 {
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
+}
+
+.section2Content {
+    max-width: 600px;
+    text-align: left;
+    color: var(--color-text-primary);
+}
+
+.section2Content p {
+    font-family: var(--font-poppins);
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1E1E1E;
+}
+
+/* --- SEÇÃO 3 --- */
+.section3 {
+    background-color: #E6F0FA;
+    text-align: center;
+    padding: var(--section-padding-y) 0;
+    color: var(--color-text-primary);
+}
+
+.section3 h2 {
+    font-family: var(--font-poppins);
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.section3 p {
+    font-family: var(--font-poppins);
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    line-height: 1.5;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    color: #1E1E1E;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 768px) {
+    .section1, .section2 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section1Content, .section2Content {
+        text-align: center;
+    }
+
+    .section1Content h1 {
+        font-size: 38px;
+    }
+
+    .section1Content p, .section2Content p, .section3 p {
+        font-size: 22px;
+    }
+
+    .section3 h2 {
+        font-size: 40px;
+    }
+
+    .buttonPrimary, .buttonSecondary {
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section1Content h1 {
+        font-size: 30px;
+    }
+
+    .section3 h2 {
+        font-size: 32px;
+    }
+
+    .section1Content p, .section2Content p, .section3 p {
+        font-size: 18px;
+    }
+
+    .image1, .image2 {
+        max-width: 90%;
+    }
+
+    .section1, .section2, .section3 {
+        padding: 50px 20px;
+        gap: 30px;
+    }
+}
