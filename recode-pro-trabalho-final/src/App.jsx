@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
-import LandingPage from "./landing page/landing.page1";
+import Corpo from "./landing-page/home.jsx"; // Você importou como 'Corpo'
 
 
 function App() {
@@ -12,10 +12,10 @@ function App() {
       <Navbar />
 
       <main className="content-wrapper">
-      <Routes>
-  <Route path="/" element={<LandingPage />} />
-</Routes>
-
+        <Routes>
+          {/* Mude 'LandingPage' para 'Corpo' aqui */}
+          <Route path="/" element={<Corpo />} /> 
+        </Routes>
       </main>
 
       <Footer />
