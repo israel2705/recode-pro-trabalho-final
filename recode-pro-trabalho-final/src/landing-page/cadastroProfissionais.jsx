@@ -1,7 +1,7 @@
-import Navbar from "../recode-pro-trabalho-final/src/navbar/components/Navbar";
 import React, { useState } from "react";
+import styles from "./cadastroProfissionais.module.css";
 
-const cadastroProfissionais = () => {
+const CadastroProfissionais = () => {
   const [formData, setFormData] = useState({
     nome: "",
     especialidade: "",
@@ -26,20 +26,22 @@ const cadastroProfissionais = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h1>Cadastre seu atendimento especializado em TEA</h1>
-        <p>
+    <main className={styles.pageWrapper}>
+      <div className={styles.container}>
+        <h1 className={styles.titulo}>
+          Cadastre seu atendimento especializado em TEA
+        </h1>
+        <p className={styles.descricao}>
           Profissionais da saúde que atendem pessoas no espectro autista podem
-          divulgar seus serviços aqui.
-          <br />
+          divulgar seus serviços aqui. <br />
           As informações ficarão disponíveis para o público.
         </p>
 
-        <form onSubmit={handleSubmit}>
-          <h2>
+        <form onSubmit={handleSubmit} className={styles.formulario}>
+          <h2 className={styles.subtitulo}>
             Preencha os dados para cadastrar seu atendimento especializado
           </h2>
+
           <label>
             Nome completo:*
             <input
@@ -51,6 +53,7 @@ const cadastroProfissionais = () => {
               required
             />
           </label>
+
           <label>
             Especialidade:*
             <input
@@ -62,8 +65,9 @@ const cadastroProfissionais = () => {
               required
             />
           </label>
+
           <label>
-            :Endereço de atendimento*
+            Endereço de atendimento:*
             <input
               type="text"
               name="endereco"
@@ -73,9 +77,10 @@ const cadastroProfissionais = () => {
               required
             />
           </label>
-          <fieldset>
+
+          <fieldset className={styles.fieldset}>
             <legend>Forma de atendimento:*</legend>
-            <label></label>
+
             <label>
               <input
                 type="checkbox"
@@ -96,8 +101,9 @@ const cadastroProfissionais = () => {
               Particular
             </label>
           </fieldset>
+
           <label>
-            Contato profissional (opcional)*
+            Contato profissional (opcional):*
             <input
               type="text"
               name="contato"
@@ -107,11 +113,20 @@ const cadastroProfissionais = () => {
               required
             />
           </label>
-          <button type="submit">Enviar Cadastro</button>
+
+          <button type="submit" className={styles.botao}>
+            Enviar Cadastro
+          </button>
         </form>
       </div>
-    </div>
+
+      <img
+        src="/cadastrar.png"
+        alt="Ilustração decorativa de cadastro"
+        className={styles.imageDecorativa}
+      />
+    </main>
   );
 };
 
-export default cadastroProfissionais;
+export default CadastroProfissionais;

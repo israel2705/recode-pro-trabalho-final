@@ -1,0 +1,128 @@
+.pageWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 1400px;
+  margin: 60px auto 40px auto;
+  padding: 0 40px;
+  gap: 120px;
+  flex-wrap: wrap;
+}
+
+.container {
+  max-width: 850px;
+  flex: 1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.titulo {
+  font-size: 35px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.descricao {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.subtitulo {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: #444;
+  font-size: 15px;
+}
+
+input[type="text"] {
+  margin-top: 8px;
+  padding: 10px 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.fieldset {
+  border: none;
+  padding: 0;
+  margin-top: 5px;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-size: 15px;
+}
+
+.fieldset legend {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.fieldset label {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.botao {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+.botao:hover {
+  background-color: #0056b3;
+}
+
+/* Imagem decorativa */
+.imageDecorativa {
+  width: 500px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .pageWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .imageDecorativa {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+  }
+
+  .botao {
+    width: 100%;
+  }
+}

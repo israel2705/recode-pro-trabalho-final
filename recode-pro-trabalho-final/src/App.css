@@ -1,23 +1,35 @@
-.content-wrapper {
-  flex-grow: 1;
+/* --- Estilo da Landing Page (centralizada) --- */
+.landing {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 20px;
+  justify-content: center;
+  padding: 60px 20px;
   text-align: center;
 }
 
-.content-wrapper h1 {
-  color: #E0E0E0;
-  font-size: 3.2em;
+.landing h1 {
+  font-size: 3em;
+  color: #000;
   margin-bottom: 20px;
 }
 
-.content-wrapper p {
-  color: #C0C0C0;
-  font-size: 1.1em;
+.landing p {
+  color: #555;
+  font-size: 1.2em;
+  max-width: 700px;
   line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto 10px auto;
+}
+
+/* --- Estilo da Página de Busca (alinhada à esquerda) --- */
+.buscaContainer {
+  padding: 40px 40px 40px 80px; /* mais espaço à esquerda */
+  text-align: left;
+}
+
+.buscaContainer .titulo {
+  font-size: 2em;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 40px;
 }

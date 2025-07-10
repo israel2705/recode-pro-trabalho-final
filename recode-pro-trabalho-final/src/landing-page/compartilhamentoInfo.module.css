@@ -1,0 +1,118 @@
+.pageWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 0 40px;
+  gap: 60px;
+}
+
+.container {
+  flex: 1;
+  max-width: 850px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.imageDecorativa {
+  width: 600px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #444;
+  font-size: 1.1rem;
+}
+
+input[type="text"],
+textarea {
+  padding: 14px 18px;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 8px;
+  resize: vertical;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 10px 0 20px;
+  display: flex;
+  gap: 20px;
+}
+
+legend {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: none;
+  padding: 16px 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.estrelas {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsivo */
+@media (max-width: 1000px) {
+  .pageWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .imageDecorativa {
+    width: 100%;
+    max-width: 400px;
+  }
+}
