@@ -1,101 +1,102 @@
-import { useState } from 'react';
-import styles from './cadastroProfissionais.module.css';
+import { useState } from "react";
+import styles from "./cadastroProfissionais.module.css";
 
 const CadastroProfissionais = () => {
   const [formData, setFormData] = useState({
     // Dados Pessoais
-    nome: '',
-    email: '',
-    telefone: '',
-    cpf: '',
-    dataNascimento: '',
-    
+    nome: "",
+    email: "",
+    telefone: "",
+    cpf: "",
+    dataNascimento: "",
+
     // Dados Profissionais
-    profissao: '',
+    profissao: "",
     especialidades: [],
-    registroProfissional: '',
-    tempoExperiencia: '',
-    formacao: '',
-    instituicaoFormacao: '',
-    
+    registroProfissional: "",
+    tempoExperiencia: "",
+    formacao: "",
+    instituicaoFormacao: "",
+
     // Endereço
-    cep: '',
-    endereco: '',
-    numero: '',
-    complemento: '',
-    bairro: '',
-    cidade: '',
-    estado: '',
-    
+    cep: "",
+    endereco: "",
+    numero: "",
+    complemento: "",
+    bairro: "",
+    cidade: "",
+    estado: "",
+
     // Atendimento
     tipoAtendimento: [],
-    valorConsulta: '',
+    valorConsulta: "",
     disponibilidade: [],
-    descricao: '',
-    
+    descricao: "",
+
     // Documentos
     curriculo: null,
     certificados: null,
-    foto: null
+    foto: null,
   });
 
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const especialidadesOptions = [
-    'Psicologia Clínica',
-    'Psicopedagogia',
-    'Terapia Ocupacional',
-    'Fonoaudiologia',
-    'Fisioterapia',
-    'Neuropsicologia',
-    'Análise do Comportamento Aplicada (ABA)',
-    'Musicoterapia',
-    'Psicomotricidade',
-    'Educação Especial'
+    "Psicologia Clínica",
+    "Psicopedagogia",
+    "Terapia Ocupacional",
+    "Fonoaudiologia",
+    "Fisioterapia",
+    "Neuropsicologia",
+    "Análise do Comportamento Aplicada (ABA)",
+    "Musicoterapia",
+    "Psicomotricidade",
+    "Educação Especial",
   ];
 
   const tipoAtendimentoOptions = [
-    'Presencial',
-    'Online',
-    'Domiciliar',
-    'Institucional'
+    "Presencial",
+    "Online",
+    "Domiciliar",
+    "Institucional",
+    "SUS",
   ];
 
   const disponibilidadeOptions = [
-    'Segunda-feira',
-    'Terça-feira',
-    'Quarta-feira',
-    'Quinta-feira',
-    'Sexta-feira',
-    'Sábado',
-    'Domingo'
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sábado",
+    "Domingo",
   ];
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    
-    if (type === 'checkbox') {
-      setFormData(prev => ({
+
+    if (type === "checkbox") {
+      setFormData((prev) => ({
         ...prev,
-        [name]: checked 
+        [name]: checked
           ? [...prev[name], value]
-          : prev[name].filter(item => item !== value)
+          : prev[name].filter((item) => item !== value),
       }));
     } else {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
-        [name]: value
+        [name]: value,
       }));
     }
   };
 
   const handleFileChange = (e) => {
     const { name, files } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: files[0]
+      [name]: files[0],
     }));
   };
 
@@ -114,22 +115,43 @@ const CadastroProfissionais = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simular envio do formulário
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setSubmitMessage('Cadastro realizado com sucesso! Entraremos em contato em breve.');
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setSubmitMessage(
+        "Cadastro realizado com sucesso! Entraremos em contato em breve."
+      );
       setFormData({
-        nome: '', email: '', telefone: '', cpf: '', dataNascimento: '',
-        profissao: '', especialidades: [], registroProfissional: '', tempoExperiencia: '',
-        formacao: '', instituicaoFormacao: '', cep: '', endereco: '', numero: '',
-        complemento: '', bairro: '', cidade: '', estado: '', tipoAtendimento: [],
-        valorConsulta: '', disponibilidade: [], descricao: '', curriculo: null,
-        certificados: null, foto: null
+        nome: "",
+        email: "",
+        telefone: "",
+        cpf: "",
+        dataNascimento: "",
+        profissao: "",
+        especialidades: [],
+        registroProfissional: "",
+        tempoExperiencia: "",
+        formacao: "",
+        instituicaoFormacao: "",
+        cep: "",
+        endereco: "",
+        numero: "",
+        complemento: "",
+        bairro: "",
+        cidade: "",
+        estado: "",
+        tipoAtendimento: [],
+        valorConsulta: "",
+        disponibilidade: [],
+        descricao: "",
+        curriculo: null,
+        certificados: null,
+        foto: null,
       });
       setCurrentStep(1);
     } catch (error) {
-      setSubmitMessage('Erro ao enviar cadastro. Tente novamente.');
+      setSubmitMessage("Erro ao enviar cadastro. Tente novamente.");
     } finally {
       setIsSubmitting(false);
     }
@@ -137,18 +159,28 @@ const CadastroProfissionais = () => {
 
   const renderStepIndicator = () => (
     <div className={styles.stepIndicator}>
-      {[1, 2, 3, 4].map(step => (
+      {[1, 2, 3, 4].map((step) => (
         <div key={step} className={styles.stepIndicatorContainer}>
-          <div className={`${styles.stepCircle} ${step <= currentStep ? styles.active : ''}`}>
-            {step < currentStep ? '✓' : step}
+          <div
+            className={`${styles.stepCircle} ${
+              step <= currentStep ? styles.active : ""
+            }`}
+          >
+            {step < currentStep ? "✓" : step}
           </div>
           <span className={styles.stepLabel}>
-            {step === 1 && 'Dados Pessoais'}
-            {step === 2 && 'Dados Profissionais'}
-            {step === 3 && 'Endereço e Atendimento'}
-            {step === 4 && 'Documentos'}
+            {step === 1 && "Dados Pessoais"}
+            {step === 2 && "Dados Profissionais"}
+            {step === 3 && "Endereço e Atendimento"}
+            {step === 4 && "Documentos"}
           </span>
-          {step < 4 && <div className={`${styles.stepConnector} ${step < currentStep ? styles.completed : ''}`} />}
+          {step < 4 && (
+            <div
+              className={`${styles.stepConnector} ${
+                step < currentStep ? styles.completed : ""
+              }`}
+            />
+          )}
         </div>
       ))}
     </div>
@@ -299,7 +331,7 @@ const CadastroProfissionais = () => {
       <div className={styles.formGroup}>
         <label className={styles.formLabel}>Especialidades *</label>
         <div className={styles.checkboxGrid}>
-          {especialidadesOptions.map(especialidade => (
+          {especialidadesOptions.map((especialidade) => (
             <label key={especialidade} className={styles.checkboxLabel}>
               <input
                 type="checkbox"
@@ -418,11 +450,11 @@ const CadastroProfissionais = () => {
           />
         </div>
       </div>
-      
+
       <div className={styles.formGroup}>
         <label className={styles.formLabel}>Tipo de Atendimento *</label>
         <div className={styles.checkboxGrid}>
-          {tipoAtendimentoOptions.map(tipo => (
+          {tipoAtendimentoOptions.map((tipo) => (
             <label key={tipo} className={styles.checkboxLabel}>
               <input
                 type="checkbox"
@@ -441,7 +473,7 @@ const CadastroProfissionais = () => {
       <div className={styles.formGroup}>
         <label className={styles.formLabel}>Disponibilidade *</label>
         <div className={styles.checkboxGrid}>
-          {disponibilidadeOptions.map(dia => (
+          {disponibilidadeOptions.map((dia) => (
             <label key={dia} className={styles.checkboxLabel}>
               <input
                 type="checkbox"
@@ -484,7 +516,9 @@ const CadastroProfissionais = () => {
             className={styles.formFile}
             accept="image/*"
           />
-          <small className={styles.fileHint}>Formatos aceitos: JPG, PNG (máx. 2MB)</small>
+          <small className={styles.fileHint}>
+            Formatos aceitos: JPG, PNG (máx. 2MB)
+          </small>
         </div>
         <div className={styles.formGroup}>
           <label className={styles.formLabel}>Currículo *</label>
@@ -496,7 +530,9 @@ const CadastroProfissionais = () => {
             accept=".pdf,.doc,.docx"
             required
           />
-          <small className={styles.fileHint}>Formatos aceitos: PDF, DOC, DOCX (máx. 5MB)</small>
+          <small className={styles.fileHint}>
+            Formatos aceitos: PDF, DOC, DOCX (máx. 5MB)
+          </small>
         </div>
         <div className={styles.formGroup}>
           <label className={styles.formLabel}>Certificados e Diplomas</label>
@@ -508,18 +544,23 @@ const CadastroProfissionais = () => {
             accept=".pdf,.jpg,.png"
             multiple
           />
-          <small className={styles.fileHint}>Formatos aceitos: PDF, JPG, PNG (máx. 10MB total)</small>
+          <small className={styles.fileHint}>
+            Formatos aceitos: PDF, JPG, PNG (máx. 10MB total)
+          </small>
         </div>
       </div>
-      
+
       <div className={styles.termsSection}>
         <label className={styles.checkboxLabel}>
-          <input
-            type="checkbox"
-            required
-            className={styles.checkbox}
-          />
-          Aceito os <a href="#" className={styles.link}>Termos de Uso</a> e a <a href="#" className={styles.link}>Política de Privacidade</a>
+          <input type="checkbox" required className={styles.checkbox} />
+          Aceito os{" "}
+          <a href="#" className={styles.link}>
+            Termos de Uso
+          </a>{" "}
+          e a{" "}
+          <a href="#" className={styles.link}>
+            Política de Privacidade
+          </a>
         </label>
       </div>
     </div>
@@ -551,7 +592,7 @@ const CadastroProfissionais = () => {
                 Voltar
               </button>
             )}
-            
+
             {currentStep < 4 ? (
               <button
                 type="button"
@@ -564,16 +605,22 @@ const CadastroProfissionais = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`${styles.btn} ${styles.btnPrimary} ${isSubmitting ? styles.loading : ''}`}
+                className={`${styles.btn} ${styles.btnPrimary} ${
+                  isSubmitting ? styles.loading : ""
+                }`}
               >
-                {isSubmitting ? 'Enviando...' : 'Finalizar Cadastro'}
+                {isSubmitting ? "Enviando..." : "Finalizar Cadastro"}
               </button>
             )}
           </div>
         </form>
 
         {submitMessage && (
-          <div className={`${styles.message} ${submitMessage.includes('sucesso') ? styles.success : styles.error}`}>
+          <div
+            className={`${styles.message} ${
+              submitMessage.includes("sucesso") ? styles.success : styles.error
+            }`}
+          >
             {submitMessage}
           </div>
         )}
@@ -583,4 +630,3 @@ const CadastroProfissionais = () => {
 };
 
 export default CadastroProfissionais;
-
