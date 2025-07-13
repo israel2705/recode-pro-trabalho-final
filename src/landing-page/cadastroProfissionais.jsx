@@ -59,7 +59,6 @@ const CadastroProfissionais = () => {
   const tipoAtendimentoOptions = [
     "Presencial",
     "Online",
-    "Domiciliar",
     "Institucional",
     "SUS",
   ];
